@@ -1,6 +1,6 @@
 package com.jeglikowski.easy.e0013
 
-class Solution {
+private class Solution {
     fun romanToInt(s: String): Int {
         var result = 0
         var prevValue = 0
