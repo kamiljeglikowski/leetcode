@@ -11,18 +11,17 @@ package com.jeglikowski.easy.e0094
  * }
  */
 
-class TreeNode(var `val`: Int) {
-    var left: TreeNode? = null
-    var right: TreeNode? = null
-}
-
-// Recursive 1
-
-private class Solution {
+// Recursive 2
+private class Solution2 {
+    val result = mutableListOf<Int>()
     fun inorderTraversal(root: TreeNode?): List<Int> {
-        if (root == null) return emptyList()
+        if (root != null) {
+            inorderTraversal(root.left)
+            result.add(root.`val`)
+            inorderTraversal(root.right)
+        }
 
-        return inorderTraversal(root.left) + root.`val` + inorderTraversal(root.right)
+        return result
     }
 }
 
