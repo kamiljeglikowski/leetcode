@@ -23,4 +23,6 @@ fun main() {
     val nums2 = intArrayOf(0, 1, 2, 2, 3, 0, 4, 2)
     val result2 = solution.removeElement(nums2, 2)
     println(result2) // 5
+
+    test
 }
