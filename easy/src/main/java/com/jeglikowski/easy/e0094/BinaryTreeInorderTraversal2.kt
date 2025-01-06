@@ -26,7 +26,7 @@ private class Solution2 {
 }
 
 fun main() {
-    val solution = Solution()
+    val solution = Solution2()
     val root = TreeNode(1)
     root.right = TreeNode(2)
     root.right?.left = TreeNode(3)
