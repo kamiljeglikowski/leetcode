@@ -11,7 +11,7 @@ package com.jeglikowski.easy.e0094
  * }
  */
 
-class TreeNode(var `val`: Int) {
+private class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null
 }
