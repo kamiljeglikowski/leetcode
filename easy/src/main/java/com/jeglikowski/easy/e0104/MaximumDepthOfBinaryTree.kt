@@ -11,15 +11,14 @@ package com.jeglikowski.easy.e0104
  * }
  */
 
-private class TreeNode(var `val`: Int) {
+internal class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null
 }
 
-private class Solution {
+internal class Solution104 {
     var maxDepth = 0
     fun maxDepth(root: TreeNode?): Int {
-
         if (root == null) {
             return maxDepth
         } else {
@@ -31,7 +30,7 @@ private class Solution {
         return maxDepth
     }
 
-    fun depthWithValue(root: TreeNode?, currentDepth: Int) : Int{
+    private fun depthWithValue(root: TreeNode?, currentDepth: Int) : Int{
         if (root?.left != null) {
             val result = depthWithValue(root.left, currentDepth + 1)
 
@@ -51,23 +50,4 @@ private class Solution {
 
         return currentDepth
     }
-}
-
-fun main() {
-    val solution = Solution()
-    val root = TreeNode(3)
-    root.left = TreeNode(9)
-    root.right = TreeNode(20)
-    root.right?.left = TreeNode(15)
-    root.right?.right = TreeNode(7)
-    val result = solution.maxDepth(root)
-    println(result) // 3
-
-    solution.maxDepth = 0
-
-    val root2 = TreeNode(0)
-    root2.left = null
-    root2.right = null
-    val result2 = solution.maxDepth(root2)
-    println(result2) // 1
 }

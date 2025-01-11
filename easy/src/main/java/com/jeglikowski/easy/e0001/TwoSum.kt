@@ -1,6 +1,6 @@
 package com.jeglikowski.easy.e0001
 
-private class Solution {
+internal class Solution1 {
     fun twoSum(nums: IntArray, target: Int): IntArray {
         val map = HashMap<Int, Int>()
 
@@ -15,17 +15,4 @@ private class Solution {
         }
         return IntArray(2)
     }
-}
-
-fun main() {
-    val solution = Solution()
-    val nums = intArrayOf(2, 7, 11, 15)
-    val target = 9
-    val result = solution.twoSum(nums, target)
-    println(result.joinToString())
-
-    val nums2 = intArrayOf(3, 2, 4)
-    val target2 = 6
-    val result2 = solution.twoSum(nums2, target2)
-    println(result2.joinToString())
 }

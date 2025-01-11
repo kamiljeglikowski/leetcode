@@ -11,13 +11,12 @@ package com.jeglikowski.easy.e0101
  * }
  */
 
-private class TreeNode(var `val`: Int) {
+internal class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null
 }
 
-private class Solution {
-
+internal class Solution101 {
     val leftSide = mutableListOf<Int?>()
     val rightSide = mutableListOf<Int?>()
 
@@ -38,7 +37,7 @@ private class Solution {
         return true
     }
 
-    fun leftSideOfTree(root: TreeNode?): List<Int?> {
+    private fun leftSideOfTree(root: TreeNode?): List<Int?> {
         if (root != null) {
             leftSide.add(root.`val`)
             if (root.right != null || root.left != null) {
@@ -52,7 +51,7 @@ private class Solution {
         return leftSide
     }
 
-    fun rightSideOfTree(root: TreeNode?): List<Int?> {
+    private fun rightSideOfTree(root: TreeNode?): List<Int?> {
         if (root != null) {
             rightSide.add(root.`val`)
 
@@ -66,40 +65,4 @@ private class Solution {
 
         return rightSide
     }
-}
-
-fun main() {
-    val solution = Solution()
-    val root = TreeNode(1)
-    root.left = TreeNode(2)
-    root.right = TreeNode(2)
-    root.left?.left = TreeNode(3)
-    root.left?.right = TreeNode(4)
-    root.right?.left = TreeNode(4)
-    root.right?.right = TreeNode(3)
-    val result = solution.isSymmetric(root)
-    println(result) // true
-
-    solution.leftSide.clear()
-    solution.rightSide.clear()
-    val root2 = TreeNode(1)
-    root2.left = TreeNode(2)
-    root2.right = TreeNode(2)
-    root2.left?.right = TreeNode(3)
-    root2.right?.right = TreeNode(3)
-    val result2 = solution.isSymmetric(root2)
-    println(result2) // false
-
-    solution.leftSide.clear()
-    solution.rightSide.clear()
-    val root3 = TreeNode(1)
-    root3.left = TreeNode(2)
-    root3.right = TreeNode(2)
-    root3.left?.left = TreeNode(2)
-    root3.left?.right = null
-    root3.right?.left = TreeNode(2)
-    root3.right?.right = null
-    val result3 = solution.isSymmetric(root3)
-    println(result3) // false
-
 }

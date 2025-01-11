@@ -11,12 +11,13 @@ package com.jeglikowski.easy.e0094
  * }
  */
 
-private class TreeNode2(var `val`: Int) {
+internal class TreeNode2(var `val`: Int) {
     var left: TreeNode2? = null
     var right: TreeNode2? = null
 }
+
 // Recursive 2
-private class Solution2 {
+internal class Solution94 {
     val result = mutableListOf<Int>()
     fun inorderTraversal(root: TreeNode2?): List<Int> {
         if (root != null) {
@@ -27,13 +28,4 @@ private class Solution2 {
 
         return result
     }
-}
-
-fun main() {
-    val solution = Solution2()
-    val root = TreeNode2(1)
-    root.right = TreeNode2(2)
-    root.right?.left = TreeNode2(3)
-    val result = solution.inorderTraversal(root)
-    println(result) // [1, 3, 2]
 }
