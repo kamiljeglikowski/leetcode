@@ -10,11 +10,11 @@ package com.jeglikowski.easy.e0021
  * }
  */
 
-private class ListNode(var `val`: Int) {
+internal class ListNode(var `val`: Int) {
     var next: ListNode? = null
 }
 
-private class Solution {
+internal class Solution21 {
     fun mergeTwoLists(list1: ListNode?, list2: ListNode?): ListNode? {
         if (list1 == null) {
             return list2
@@ -53,23 +53,5 @@ private class Solution {
         } while (currentList1Item != null || currentList2Item != null)
 
         return result
-    }
-}
-
-fun main() {
-    val solution = Solution()
-    val l1 = ListNode(1)
-    l1.next = ListNode(2)
-    l1.next?.next = ListNode(4)
-
-    val l2 = ListNode(1)
-    l2.next = ListNode(3)
-    l2.next?.next = ListNode(4)
-
-    val result = solution.mergeTwoLists(l1, l2)
-    var current = result
-    while (current != null) {
-        println(current.`val`)
-        current = current.next
     }
 }

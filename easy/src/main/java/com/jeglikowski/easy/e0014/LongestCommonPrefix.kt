@@ -1,7 +1,10 @@
 package com.jeglikowski.easy.e0014
 
-private class Solution {
+internal class Solution14 {
     fun longestCommonPrefix(strs: Array<String>): String {
+        if (strs.isEmpty()) {
+            return ""
+        }
         var minLength = strs.minBy { it.length }.length
         var samePart = strs[0].substring(0, minLength)
         for (text in strs) {
@@ -23,8 +26,6 @@ private class Solution {
         var lowestPossible = 1
         var highestPossible = currentCommon.length
 
-        // println("compare $currentCommon $compareWith")
-
         if (currentCommon.compareTo(compareWith.substring(0, currentCommon.length)) == 0) {
             return currentCommon
         }
@@ -36,14 +37,8 @@ private class Solution {
         while (lowestPossible != highestPossible) {
             val firstToCompare = currentCommon.substring(0, highestPossible)
             val secondToCompare = compareWith.substring(0, highestPossible)
-
-            //   println("first $firstToCompare")
-            //   println("second $secondToCompare")
-            //   println("lowestPossible $lowestPossible")
-            //   println("highestPossible  $highestPossible")
             if (firstToCompare.compareTo(secondToCompare) == 0) {
                 lowestPossible = getNewIndexRoundedHalfUp(lowestPossible, highestPossible)
-                // println("new Lowest $lowestPossible")
             } else {
                 val newHighest = getNewIndexRoundedHalfUp(lowestPossible, highestPossible)
                 highestPossible = if (newHighest == highestPossible) {
@@ -65,19 +60,4 @@ private class Solution {
             sum/2 +1
         }
     }
-}
-
-fun main() {
-    val solution = Solution()
-    val strs = arrayOf("flower", "flow", "flight")
-    val result = solution.longestCommonPrefix(strs)
-    println(result) // fl
-
-    val strs2 = arrayOf("dog", "racecar", "car")
-    val result2 = solution.longestCommonPrefix(strs2)
-    println(result2) // ""
-
-    val strs3 = arrayOf("ab", "a")
-    val result3 = solution.longestCommonPrefix(strs3)
-    println(result3) // a
 }
