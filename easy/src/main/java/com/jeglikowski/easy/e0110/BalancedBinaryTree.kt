@@ -18,43 +18,28 @@ class TreeNode(var `val`: Int) {
     var right: TreeNode? = null
 }
 
-class Solution {
+class Solution110 {
     fun isBalanced(root: TreeNode?): Boolean {
         try {
             getLevel(root, 0)
-        } catch (e: Exception){
-        return false
+        } catch (e: Exception) {
+            return false
         }
         return true
     }
 
-    private fun getLevel(root: TreeNode?, currentLevel: Int) : Int {
+    private fun getLevel(root: TreeNode?, currentLevel: Int): Int {
         if (root == null) {
             return currentLevel
         }
 
-        val leftLevel = getLevel(root.left, currentLevel)
-        val rightLevel = getLevel(root.right, currentLevel)
+        val leftLevel = getLevel(root.left, currentLevel + 1)
+        val rightLevel = getLevel(root.right, currentLevel + 1)
 
-        if (abs(leftLevel-rightLevel) > 1) {
+        if (abs(leftLevel - rightLevel) > 1) {
             throw Exception()
         }
 
         return leftLevel.coerceAtLeast(rightLevel)
     }
-}
-
-fun main() {
-    val solution = Solution()
-    val root = TreeNode(1)
-    root.left = TreeNode(2)
-    root.right = TreeNode(3)
-    root.left?.left = TreeNode(4)
-    root.left?.right = TreeNode(5)
-    root.right?.left = TreeNode(6)
-    root.right?.right = TreeNode(7)
-
-    val result = solution.isBalanced(root)
-    println(result) // true
-
 }
